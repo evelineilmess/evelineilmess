@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Other Work · Selected Pieces · Evelin B. Eilmess</title>
+<meta name="description" content="A gallery of selected pieces by Evelin B. Eilmess — branding, packaging, print, OOH, editorial, social and digital work across many clients.">
+<meta property="og:title" content="Other Work · Selected Pieces">
+<meta property="og:description" content="A gallery of selected pieces — projects without a full case study.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<link id="gfont-Oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+
+<style>
+  /* ---------- gallery intro ---------- */
+  .gal-intro{padding-top:clamp(7rem,12vw,11rem)}
+  .gal-intro .lede{max-width:46ch;color:var(--fg-dim);font-size:var(--t-md);margin-top:1.4rem;text-wrap:pretty}
+  .gal-intro .note{display:flex;align-items:center;gap:.7rem;margin-top:1.6rem;color:var(--fg-faint)}
+  .gal-intro .note .d{width:6px;height:6px;border-radius:50%;background:var(--violet);flex:0 0 auto}
+
+  /* ---------- masonry ---------- */
+  .gal{columns:3;column-gap:clamp(1rem,1.6vw,1.5rem);margin-block:clamp(2.6rem,6vw,5rem)}
+  @media (max-width:1040px){.gal{columns:2}}
+  @media (max-width:600px){.gal{columns:1}}
+
+  .gal-item{break-inside:avoid;margin-bottom:clamp(1rem,1.6vw,1.5rem)}
+  .gal-card{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);
+    border-radius:var(--rad);overflow:hidden;background:var(--bg-2);cursor:zoom-in;
+    transition:border-color .4s var(--ease),transform .5s var(--ease)}
+  .gal-card:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+  .gal-card img,.gal-card video{display:block;width:100%;height:auto}
+  .gal-card video{background:#000}
+  .gal-play{position:absolute;top:.7rem;left:.7rem;z-index:3;display:flex;align-items:center;gap:.4rem;
+    font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);
+    background:rgba(10,10,16,.5);border:1px solid var(--line-strong);border-radius:100px;padding:.32rem .6rem;
+    backdrop-filter:blur(8px)}
+  .gal-play .pdot{width:5px;height:5px;border-radius:50%;background:var(--pink)}
+
+  /* tall website screenshots get cropped to a sensible window */
+  .gal-card.crop{aspect-ratio:4/5}
+  .gal-card.crop img,.gal-card.crop video{height:100%;object-fit:cover;object-position:top center}
+
+  /* caption — revealed on hover, pointer-transparent */
+  .gal-cap{position:absolute;inset:auto 0 0 0;z-index:2;display:flex;align-items:flex-end;
+    justify-content:space-between;gap:1rem;padding:1.1rem 1.05rem .95rem;pointer-events:none;
+    background:linear-gradient(to top,rgba(7,7,11,.9),rgba(7,7,11,.45) 55%,transparent);
+    opacity:0;transform:translateY(8px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+  .gal-card:hover .gal-cap{opacity:1;transform:none}
+  .gal-name{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.01em;font-size:1.04rem;
+    line-height:1.1;color:var(--fg)}
+  .gal-tag{flex:0 0 auto;font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--fg-dim);border:1px solid var(--line-strong);border-radius:100px;padding:.34rem .66rem;
+    background:rgba(10,10,16,.5);backdrop-filter:blur(6px);white-space:nowrap}
+  .gal-expand{position:absolute;top:.7rem;right:.7rem;z-index:3;width:34px;height:34px;border-radius:50%;
+    display:grid;place-items:center;background:rgba(10,10,16,.5);border:1px solid var(--line-strong);
+    backdrop-filter:blur(8px);opacity:0;transform:scale(.9);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .gal-card:hover .gal-expand{opacity:1;transform:none}
+  .gal-expand svg{width:15px;height:15px;stroke:var(--fg);fill:none}
+
+  /* ---------- lightbox ---------- */
+  .lightbox{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;
+    padding:clamp(1.2rem,5vw,4rem);background:rgba(5,5,8,.93);backdrop-filter:blur(14px);
+    opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s var(--ease)}
+  .lightbox.open{opacity:1;visibility:visible}
+  .lb-stage{max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;gap:1rem;align-items:center}
+  .lightbox img,.lightbox video{max-width:100%;max-height:82vh;object-fit:contain;border-radius:10px;
+    box-shadow:0 40px 120px rgba(0,0,0,.6);transform:scale(.97);transition:transform .45s var(--ease);background:#000}
+  .lightbox.open img,.lightbox.open video{transform:none}
+  .lightbox video[hidden],.lightbox img[hidden]{display:none}
+  .lb-meta{display:flex;align-items:center;gap:.9rem;color:var(--fg-dim)}
+  .lb-meta .nm{font-family:'Oswald',sans-serif;color:var(--fg);font-size:1.05rem}
+  .lb-meta .tg{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+  .lb-close{position:absolute;top:clamp(1rem,3vw,2rem);right:clamp(1rem,3vw,2rem);width:48px;height:48px;
+    border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.04);color:var(--fg)}
+  .lb-close:hover{background:var(--surface-2)}
+  .lb-close svg{width:20px;height:20px;stroke:currentColor;fill:none}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+    display:grid;place-items:center;border:1px solid var(--line-strong);background:rgba(255,255,255,.04);color:var(--fg)}
+  .lb-nav:hover{background:var(--surface-2)}
+  .lb-nav.prev{left:clamp(.6rem,2vw,1.6rem)}
+  .lb-nav.next{right:clamp(.6rem,2vw,1.6rem)}
+  .lb-nav svg{width:22px;height:22px;stroke:currentColor;fill:none}
+  @media (max-width:600px){.lb-nav{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <a class="brand" href="index.html#top" aria-label="Evelin B. Eilmess - home" style="font-family: Archivo">
+    <span class="dot"></span> Evelin B. Eilmess
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#journal">Journal</a>
+    <a class="nav-cta" href="contact.html">Let's talk</a>
+  </nav>
+  <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-overlay" id="menu">
+  <a href="index.html#work">Work</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#journal">Journal</a>
+  <a href="index.html#contact">Contact</a>
+  <div class="menu-meta mono">
+    <span>London - Working globally</span>
+    <span>hello@evelineilmess.com</span>
+  </div>
+</div>
+
+<main class="case" data-screen-label="Other Work">
+  <div class="wrap gal-intro">
+    <a class="case-back mono reveal" href="index.html#work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></span>
+      All work
+    </a>
+
+    <div class="eyebrow mono reveal">
+      <span class="ln"></span>
+      <span>Other · Selected Pieces</span>
+      <span class="faint">A gallery</span>
+    </div>
+    <h1 class="reveal" data-d="1" style="font-family: Oswald; text-transform: uppercase; font-size: 152px">Other Work</h1>
+    <p class="lede reveal" data-d="2" style="width: 920px">A wider gallery of projects, packaging, print, OOH, editorial, social and digital work across many clients and industries. Pieces I enjoyed to work on and hopefully speak for themselves without a full case study.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="gal reveal" id="gallery"></div>
+  </div>
+
+  <div class="wrap">
+    <a class="next-project reveal" href="index.html#work">
+      <div class="inner">
+        <div>
+          <div class="lead-lab mono">Back to</div>
+          <div class="np-name grad-text">Selected Work</div>
+          <div class="np-cats">All projects · Case studies</div>
+        </div>
+        <span class="np-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </div>
+    </a>
+  </div>
+</main>
+
+<section class="cta" id="contact" data-screen-label="Contact">
+  <div class="cta-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
+  <div class="cta-inner wrap">
+    <span class="mono reveal">Let's work together</span>
+    <h2 class="reveal" data-d="1" style="font-family: Oswald; letter-spacing: 2.2px; line-height: 1.05">Like what<br>you see?</h2>
+    <a class="btn-big reveal" data-d="2" href="contact.html" style="font-family: Archivo">
+      Start a project
+      <span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+    <div class="cta-links reveal" data-d="3">
+      <a href="mailto:hello@evelineilmess.com">hello@evelineilmess.com</a>
+      <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-nav">
+        <div class="footer-col mono">
+          <span class="h">Menu</span>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#services">Services</a>
+        </div>
+        <div class="footer-col mono">
+          <span class="h">Connect</span>
+          <a href="mailto:hello@evelineilmess.com">Email</a>
+          <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="contact.html">Start a project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-nav prev" aria-label="Previous"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="lb-nav next" aria-label="Next"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="lb-stage">
+    <img alt="Enlarged artwork">
+    <video controls loop playsinline hidden></video>
+    <div class="lb-meta"><span class="nm"></span><span class="tg"></span></div>
+  </div>
+</div>
+
+<script>
+  /* ----- Gallery data: add more pieces here as they come in ----- */
+  const PIECES = [
+    { src:'images/other/lloyds-emails.jpg',     name:'Lloyds',             tag:'CRM · Email' },
+    { src:'images/other/otium-flyer.jpg',        name:'Otium Festival',     tag:'Poster' },
+    { src:'images/other/sammies-bag.png',       name:'Sammies',            tag:'Branding' },
+    { src:'images/other/quorso-linkedin.jpg',   name:'Quorso',             tag:'Social' },
+    { src:'images/other/indiebay-box.png',      name:'Indie Bay',          tag:'Packaging' },
+    { src:'images/other/ft-brochure.webp',      name:'FT Professional',    tag:'Print' },
+    { src:'images/other/lloyds-social.jpg',     name:'Lloyds',             tag:'Social' },
+    { src:'images/other/oldvic-posters.webp',   name:'Bristol Old Vic',    tag:'Poster' },
+    { src:'images/other/dormi-web.jpg',         name:'Dörmi',              tag:'Web' },
+    { src:'images/other/graphite-report.png',   name:'Graphite',           tag:'Editorial' },
+    { src:'images/other/intergiro-anim.mp4',     name:'Intergiro',          tag:'Motion', video:true },
+    { src:'images/other/social-gifs.gif',        name:'DRK · XIXO · McDonald\u2019s', tag:'Motion · Social' },
+    { src:'images/other/vinny-posters.jpg',     name:'Vinny',              tag:'Poster · OOH' },
+    { src:'images/other/lloyds-frontrunner.jpg',name:'Lloyds',             tag:'Email' },
+    { src:'images/other/ohi-website.png',       name:'OHI Studio',         tag:'Web', crop:true },
+    { src:'images/other/quaich8-bottles.png',   name:'Quaich 8',           tag:'Packaging' },
+    { src:'images/other/ecolyptus-logo.png',     name:'ReveniQ',            tag:'Logo · Branding' },
+    { src:'images/other/lisso-logo.jpg',         name:'Lisso',              tag:'Logo · Branding' },
+    { src:'images/other/upform-landing.jpg',    name:'Upform',             tag:'Web · Landing', crop:true },
+    { src:'images/other/whitelabel-story.mp4',   name:'White Label',        tag:'Motion · Social', video:true },
+    { src:'images/other/owo-cny.gif',            name:'The OWO',            tag:'Motion · Social' },
+    { src:'images/other/beleza-web.png',        name:'Beleza',             tag:'Web · UI' },
+    { src:'images/other/lissom-app.jpg',         name:'Lissom',             tag:'UI · App' },
+    { src:'images/other/dormi-packaging.jpg',   name:'Dörmi',              tag:'Packaging' },
+    { src:'images/other/lostminds-poster.jpg',   name:'Lost Minds',         tag:'Poster' },
+    { src:'images/other/arthur-report.webp',    name:'Arthur',             tag:'Editorial' },
+    { src:'images/other/ver1.mp4',               name:'Intergiro',          tag:'Motion', video:true },
+    { src:'images/other/indiebay-campaign.jpg', name:'Indie Bay',          tag:'Campaign' },
+    { src:'images/other/dormi-pos.jpg',         name:'Dörmi',              tag:'POS · Retail' },
+    { src:'images/other/aeons-web.jpg',          name:'Aeons',              tag:'Web · Landing', crop:true },
+    { src:'images/other/blacksilver-logo.png',  name:'Black Silver',       tag:'Logo · Branding' },
+    { src:'images/other/ipswich-map.png',        name:'Ipswich Map',        tag:'Print · Map' },
+    { src:'images/other/shepper-social.png',    name:'Shepper',            tag:'Social' },
+    { src:'images/other/viviera-billboard.png', name:'Viviera · Regenera', tag:'OOH' },
+    { src:'images/other/lattice-social.png',    name:'Lattice',            tag:'Social' },
+    { src:'images/other/heir-book.png',         name:'Bookouture',         tag:'Social Post' },
+    { src:'images/other/viviera-cups.jpg',      name:'Viviera Beach',      tag:'Merchandise' },
+    { src:'images/other/madness-book.jpg',      name:'Bookouture',         tag:'Social Post' },
+    { src:'images/other/viviera-fence.png',     name:'Viviera Beach',      tag:'Signage' },
+    { src:'images/other/viviera-flags.png',     name:'Viviera · Regenera', tag:'OOH' },
+  ];
+
+  (function(){
+    const gallery = document.getElementById('gallery');
+    PIECES.forEach((p, i) => {
+      const item = document.createElement('div');
+      item.className = 'gal-item';
+      const card = document.createElement('button');
+      card.className = 'gal-card' + (p.crop ? ' crop' : '');
+      card.type = 'button';
+      card.dataset.i = i;
+      const media = p.video
+        ? '<video src="' + p.src + '" muted loop autoplay playsinline preload="metadata"></video>'
+        : '<img loading="lazy" src="' + p.src + '" alt="' + p.name + ' — ' + p.tag + '">';
+      const badge = p.video
+        ? '<span class="gal-play"><span class="pdot"></span>Motion</span>'
+        : '';
+      card.innerHTML =
+        media + badge +
+        '<span class="gal-expand" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="2">' +
+        '<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>' +
+        '<div class="gal-cap"><span class="gal-name">' + p.name + '</span>' +
+        '<span class="gal-tag">' + p.tag + '</span></div>';
+      item.appendChild(card);
+      gallery.appendChild(item);
+    });
+    const cnt = document.getElementById('gal-count');
+    if (cnt) cnt.textContent = PIECES.length;
+
+    /* ----- Lightbox ----- */
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    const lbVid = lb.querySelector('video');
+    const lbName = lb.querySelector('.nm');
+    const lbTag = lb.querySelector('.tg');
+    let cur = -1;
+    function show(i){
+      cur = (i + PIECES.length) % PIECES.length;
+      const p = PIECES[cur];
+      lbVid.pause();
+      if (p.video){
+        lbImg.hidden = true; lbImg.removeAttribute('src');
+        lbVid.hidden = false; lbVid.src = p.src; lbVid.currentTime = 0; lbVid.play().catch(()=>{});
+      } else {
+        lbVid.hidden = true; lbVid.removeAttribute('src');
+        lbImg.hidden = false; lbImg.src = p.src; lbImg.alt = p.name + ' — ' + p.tag;
+      }
+      lbName.textContent = p.name; lbTag.textContent = p.tag;
+    }
+    function open(i){ show(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; lbVid.pause(); }
+    gallery.addEventListener('click', e => {
+      const card = e.target.closest('.gal-card');
+      if (card) open(parseInt(card.dataset.i, 10));
+    });
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    lb.querySelector('.lb-nav.prev').addEventListener('click', () => show(cur - 1));
+    lb.querySelector('.lb-nav.next').addEventListener('click', () => show(cur + 1));
+    lb.addEventListener('click', e => { if (e.target === lb || e.target === lb.querySelector('.lb-stage')) close(); });
+    window.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(cur - 1);
+      else if (e.key === 'ArrowRight') show(cur + 1);
+    });
+  })();
+</script>
+<script src="main.js"></script>
+</body>
+</html>

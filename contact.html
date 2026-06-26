@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Start a project · Evelin B. Eilmess</title>
+<meta name="description" content="Start a project with Evelin B. Eilmess — London-based multidisciplinary designer. Send a brief or just say hello.">
+<meta property="og:title" content="Contact · Evelin B. Eilmess">
+<meta property="og:description" content="Start a project, or just say hello.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<link id="gfont-Oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <a class="brand" href="index.html#top" aria-label="Evelin B. Eilmess - home" style="font-family: Archivo">
+    <span class="dot"></span> Evelin B. Eilmess
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a class="nav-cta" href="contact.html">Let's talk</a>
+  </nav>
+  <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-overlay" id="menu">
+  <a href="index.html#work">Work</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="contact.html">Contact</a>
+  <div class="menu-meta mono">
+    <span>London - Working globally</span>
+    <span>hello@evelineilmess.com</span>
+  </div>
+</div>
+
+<!-- ===================== CONTACT ===================== -->
+<main class="contact-page" data-screen-label="Contact">
+  <div class="cta-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
+  <div class="wrap">
+    <a class="case-back mono reveal" href="index.html#top">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></span>
+      Back home
+    </a>
+
+    <div class="contact-grid">
+      <!-- LEFT: intro + direct details -->
+      <div class="contact-intro">
+        <div class="eyebrow mono reveal">
+          <span class="ln"></span>
+          <span>Contact</span>
+        </div>
+        <h1 class="reveal" data-d="1" style="font-family: Oswald">Let's make your ideas happen.</h1>
+        <p class="lede reveal" data-d="2">Tell me a little about what you're working on, a brief,
+a rough idea, or just a hello. I reply to everything personally, usually within a day or two.</p>
+
+        <div class="contact-direct reveal" data-d="3">
+          <div class="row">
+            <span class="k">Email</span>
+            <a href="mailto:hello@evelineilmess.com">hello@evelineilmess.com</a>
+          </div>
+          <div class="row">
+            <span class="k">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">linkedin.com/in/evelin-eilmess ↗</a>
+          </div>
+          <div class="row">
+            <span class="k">Based in</span>
+            <span class="v">London · Working globally</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: form -->
+      <form class="contact-form reveal" data-d="2" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field-group">
+            <label for="cf-name">Name <span class="req">*</span></label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="field-group">
+            <label for="cf-email">Email <span class="req">*</span></label>
+            <input type="email" id="cf-email" name="email" placeholder="you@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="cf-type">Project type</label>
+          <select id="cf-type" name="type">
+            <option value="">Select one (optional)</option>
+            <option>Branding &amp; Identity</option>
+            <option>UI / UX &amp; Product</option>
+            <option>Web Design</option>
+            <option>Campaign / Activation</option>
+            <option>Print &amp; Editorial</option>
+            <option>Digital &amp; Social</option>
+            <option>Art / Creative Direction</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="cf-message">Message <span class="req">*</span></label>
+          <textarea id="cf-message" name="message" placeholder="Tell me about your project, timeline and anything else useful…" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-big" style="font-family: Archivo">
+          Send message
+          <span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </button>
+
+        <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+        <p class="form-note">This opens your email app with everything filled in, addressed to hello@evelineilmess.com. Prefer to write directly? Use the email above.</p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-nav">
+        <div class="footer-col mono">
+          <span class="h">Menu</span>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#services">Services</a>
+        </div>
+        <div class="footer-col mono">
+          <span class="h">Connect</span>
+          <a href="mailto:hello@evelineilmess.com">Email</a>
+          <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="contact.html">Start a project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  (function(){
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('cf-status');
+    if(!form) return;
+    var EMAIL = 'hello@evelineilmess.com';
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.name.value.trim();
+      var email = form.email.value.trim();
+      var type = form.type.value.trim();
+      var message = form.message.value.trim();
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if(!name || !emailOk || !message){
+        status.textContent = 'Please add your name, a valid email and a message.';
+        status.className = 'form-status err';
+        return;
+      }
+
+      var subject = 'New project enquiry — ' + name;
+      var bodyLines = [
+        'Name: ' + name,
+        'Email: ' + email,
+        type ? ('Project type: ' + type) : null,
+        '',
+        message
+      ].filter(function(l){ return l !== null; });
+      var href = 'mailto:' + EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.href = href;
+      status.textContent = 'Opening your email app… if nothing happens, email ' + EMAIL + ' directly.';
+      status.className = 'form-status ok';
+    });
+  })();
+</script>
+</body>
+</html>

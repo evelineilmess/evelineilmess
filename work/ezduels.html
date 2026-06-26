@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EZ Duels · UI Design Case Study · Evelin B. Eilmess</title>
+<meta name="description" content="EZ Duels case study by Evelin B. Eilmess: creative direction, art direction, illustration and UI/UX for the informational website of a Hungarian Esports startup.">
+<meta property="og:title" content="EZ Duels · UI Design Case Study">
+<meta property="og:description" content="UI/UX and illustration for the EZ Duels Esports website.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../styles.css">
+<link id="gfont-Oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@300;400;500;600;700&amp;display=swap">
+<style>
+  /* ----- screen mockups (scoped to this case) ----- */
+  .mock-browser{border-radius:14px;overflow:hidden;border:1px solid var(--line);
+    background:#0d0b14;box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+  .mock-browser .bar{display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;
+    background:linear-gradient(#16131f,#100e18);border-bottom:1px solid var(--line)}
+  .mock-browser .dots{display:flex;gap:.42rem}
+  .mock-browser .dots i{width:11px;height:11px;border-radius:50%;background:#3a3550}
+  .mock-browser .dots i:nth-child(1){background:#ff5f57}
+  .mock-browser .dots i:nth-child(2){background:#febc2e}
+  .mock-browser .dots i:nth-child(3){background:#28c840}
+  .mock-browser .url{flex:1;min-width:0;font-size:.72rem;color:var(--fg-faint);
+    background:#0b0a12;border:1px solid var(--line);border-radius:100px;
+    padding:.34rem .8rem;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mock-browser .screen{height:520px;overflow:hidden;background:#0b0a12}
+  .mock-browser .screen img{width:100%;height:auto;display:block;will-change:transform;
+    animation:ezScrollD 17s var(--ease,ease-in-out) infinite alternate;animation-play-state:paused}
+  .mock-browser .screen img.s2{animation-duration:21s}
+  .mock-browser .screen img.s3{animation-duration:14s}
+  .mock-browser:hover .screen img{animation-play-state:running}
+  @keyframes ezScrollD{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 520px))}}
+  /* phone frame */
+  .mock-phone{width:300px;margin-inline:auto;border-radius:42px;padding:11px;
+    background:linear-gradient(155deg,#23202e,#0e0c16);border:1px solid var(--line);
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.75)}
+  .mock-phone .screen{position:relative;border-radius:32px;overflow:hidden;height:560px;background:#0b0a12}
+  .mock-phone .screen img{width:100%;height:auto;display:block;will-change:transform;
+    animation:ezScrollP 30s var(--ease,ease-in-out) infinite alternate;animation-play-state:paused}
+  .mock-phone:hover .screen img{animation-play-state:running}
+  @keyframes ezScrollP{0%,5%{transform:translateY(0)}95%,100%{transform:translateY(calc(-100% + 560px))}}
+  .mock-phone .notch{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:center;pointer-events:none}
+  .mock-phone .notch::before{content:"";width:120px;height:22px;border-radius:0 0 16px 16px;background:#0e0c16}
+  @media (prefers-reduced-motion:reduce){
+    .mock-browser .screen,.mock-phone .screen{overflow-y:auto}
+    .mock-browser .screen img,.mock-phone .screen img{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <a class="brand" href="../index.html" aria-label="Evelin B. Eilmess - home">
+    <span class="dot"></span> Evelin B. Eilmess
+  </a>
+  <nav class="nav-links">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#journal">Journal</a>
+    <a class="nav-cta" href="../contact.html">Let's talk</a>
+  </nav>
+  <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-overlay" id="menu">
+  <a href="../index.html#work">Work</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#journal">Journal</a>
+  <a href="../index.html#contact">Contact</a>
+  <div class="menu-meta mono">
+    <span>London - Working globally</span>
+    <span>hello@evelineilmess.com</span>
+  </div>
+</div>
+
+<main class="case" data-screen-label="Case: EZ Duels">
+  <div class="wrap">
+    <a class="case-back mono reveal" href="../index.html#work">
+      <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></span>
+      All work
+    </a>
+
+    <section class="case-hero">
+      <div class="eyebrow mono reveal">
+        <span class="ln"></span>
+        <span>(13) · Selected Work</span>
+        <span class="faint">User Interface</span>
+      </div>
+      <h1 class="reveal" data-d="1" style="font-family: Oswald">EZDUELS</h1>
+      <p class="summary reveal" data-d="2">An informational website for an Esports startup. EZ Duels organises Esports competitions for PC and mobile gamers. I led creative and art direction while designing the experience.</p>
+
+      <div class="case-meta reveal" data-d="3">
+        <div class="m"><span class="k mono">Client</span><span class="v">EZ Duels<span>Esports · Hungary</span></span></div>
+        <div class="m"><span class="k mono">Role</span><span class="v">Freelance UI Designer<span>Creative &amp; Art Direction</span></span></div>
+        <div class="m"><span class="k mono">Skillset</span><span class="v">UX/UI · Illustration<span>PS · AI · Figma</span></span></div>
+        <div class="m"><span class="k mono">Year</span><span class="v">2022<span>Informational website</span></span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="case-figure reveal">
+      <div class="case-media wide natural">
+        <img src="../images/ez-laptop.png" alt="The EZ Duels homepage shown on a laptop floating above a podium in a purple 3D scene">
+      </div>
+      <figcaption class="case-cap mono">
+        <span><span class="num">01 /</span> An informational site for a new Esports startup</span>
+        <span class="faint">UI · Web</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <section class="case-block">
+      <div class="lab mono reveal"><span class="idx">(01)</span><span class="t">Overview</span></div>
+      <div class="body reveal" data-d="1">
+        <p class="lead">EZ Duels is a startup specialising in organising Esports competitions, primarily for PC and mobile gamers.</p>
+        <p>The objective was a <strong>visually appealing, user-friendly informational site</strong> that introduces the platform to a new audience.</p>
+        <p>At the centre of it sits the competition system, the part that had to come across from a visitor's very first scroll.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="case-block">
+      <div class="lab mono reveal"><span class="idx">(02)</span><span class="t">The challenge</span></div>
+      <div class="body reveal" data-d="1">
+        <h2>Making a complex system easy to grasp.</h2>
+        <p>Communicating how the competitions actually work was the hardest part: dense, multi-step information that could easily overwhelm a first-time visitor.</p>
+        <p>Getting the structure and the supporting icons right was what made it click.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="case-figure reveal">
+      <div class="case-media natural">
+        <img src="../images/ez-phone.png" alt="The EZ Duels mobile homepage shown on a phone in a purple lit interior">
+      </div>
+      <figcaption class="case-cap mono">
+        <span><span class="num">02 /</span> The experience, carried onto mobile</span>
+        <span class="faint">UI / UX · Mobile</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <section class="case-block">
+      <div class="lab mono reveal"><span class="idx">(03)</span><span class="t">The approach</span></div>
+      <div class="body reveal" data-d="1">
+        <h2>Explain it through structure and illustration.</h2>
+        <p>I broke the system into organised, bite-sized descriptions and paired each with a custom illustrated icon, so the logic reads at a glance rather than in a wall of text.</p>
+        <ul class="case-do">
+          <li><span class="n">01</span><span class="x">Creative direction<span>Setting the visual tone for an Esports audience.</span></span></li>
+          <li><span class="n">02</span><span class="x">Structured content<span>Breaking the system into clear, digestible steps.</span></span></li>
+          <li><span class="n">03</span><span class="x">Illustrative icons<span>Custom icons that carry meaning, not decoration.</span></span></li>
+          <li><span class="n">04</span><span class="x">UI/UX design<span>An intuitive layout that guides the eye through.</span></span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.6rem)">
+      <figure class="case-figure" style="margin-block:0">
+        <div class="mock-browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">ezduels.com</span></div>
+          <div class="screen"><img src="../images/ez-page-home.jpg" alt="The full EZ Duels homepage design, top to bottom"></div>
+        </div>
+        <figcaption class="case-cap mono">
+          <span><span class="num">03 /</span> Homepage</span>
+          <span class="faint">Hover to scroll</span>
+        </figcaption>
+      </figure>
+      <figure class="case-figure" style="margin-block:0">
+        <div class="mock-browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">ezduels.com/games</span></div>
+          <div class="screen"><img src="../images/ez-page-games.jpg" class="s2" alt="The full EZ Duels games page design, top to bottom"></div>
+        </div>
+        <figcaption class="case-cap mono">
+          <span><span class="num">04 /</span> Games</span>
+          <span class="faint">Hover to scroll</span>
+        </figcaption>
+      </figure>
+      <figure class="case-figure" style="margin-block:0">
+        <div class="mock-browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">ezduels.com/how-it-works</span></div>
+          <div class="screen"><img src="../images/ez-page-how.jpg" class="s3" alt="The full EZ Duels how-it-works page design, top to bottom"></div>
+        </div>
+        <figcaption class="case-cap mono">
+          <span><span class="num">05 /</span> How it works</span>
+          <span class="faint">Hover to scroll</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="case-block">
+      <div class="lab mono reveal"><span class="idx">(04)</span><span class="t">Outcome</span></div>
+      <div class="body reveal" data-d="1">
+        <h2>An Esports site that's easy to navigate.</h2>
+        <p>The finished site introduces EZ Duels with clarity and personality, how the competitions work reads easily, the illustrations do the heavy lifting, and gamers on PC or mobile find their footing fast.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <a class="next-project reveal" href="quorso.html">
+      <div class="inner">
+        <div>
+          <div class="lead-lab mono">Next project</div>
+          <div class="np-name grad-text">Quorso</div>
+          <div class="np-cats">UI / UX · Web</div>
+        </div>
+        <span class="np-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </div>
+    </a>
+  </div>
+</main>
+
+<section class="cta" id="contact" data-screen-label="Contact">
+  <div class="cta-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
+  <div class="cta-inner wrap">
+    <span class="mono reveal">Let's work together</span>
+    <h2 class="reveal" data-d="1">Have a project<br>like this?</h2>
+    <a class="btn-big reveal" data-d="2" href="../contact.html">
+      Start a project
+      <span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+    <div class="cta-links reveal" data-d="3">
+      <a href="mailto:hello@evelineilmess.com">hello@evelineilmess.com</a>
+      <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-nav">
+        <div class="footer-col mono">
+          <span class="h">Menu</span>
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#services">Services</a>
+        </div>
+        <div class="footer-col mono">
+          <span class="h">Connect</span>
+          <a href="mailto:hello@evelineilmess.com">Email</a>
+          <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="../contact.html">Start a project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
