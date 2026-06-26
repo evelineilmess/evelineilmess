@@ -76,6 +76,11 @@ a rough idea, or just a hello. I reply to everything personally, usually within 
 
       <!-- RIGHT: form -->
       <form class="contact-form reveal" data-d="2" id="contact-form" novalidate>
+        <!-- Web3Forms: replace the access key below with your own from web3forms.com -->
+        <input type="hidden" name="access_key" value="0fec7471-14aa-46bd-bd09-5c5981b6fd0c">
+        <input type="hidden" name="subject" value="New project enquiry — evelineilmess.com">
+        <input type="hidden" name="from_name" value="Evelin Eilmess — Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="field-group">
             <label for="cf-name">Name <span class="req">*</span></label>
@@ -113,7 +118,7 @@ a rough idea, or just a hello. I reply to everything personally, usually within 
         </button>
 
         <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
-        <p class="form-note">This opens your email app with everything filled in, addressed to hello@evelineilmess.com. Prefer to write directly? Use the email above.</p>
+        <p class="form-note">Sent straight to hello@evelineilmess.com — no app required. Prefer to write directly? Use the email above.</p>
       </form>
     </div>
   </div>
@@ -146,37 +151,48 @@ a rough idea, or just a hello. I reply to everything personally, usually within 
   (function(){
     var form = document.getElementById('contact-form');
     var status = document.getElementById('cf-status');
+    var btn = form ? form.querySelector('button[type="submit"]') : null;
     if(!form) return;
     var EMAIL = 'hello@evelineilmess.com';
+    var emailOk = function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); };
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
       var name = form.name.value.trim();
       var email = form.email.value.trim();
-      var type = form.type.value.trim();
       var message = form.message.value.trim();
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-      if(!name || !emailOk || !message){
+      if(!name || !emailOk(email) || !message){
         status.textContent = 'Please add your name, a valid email and a message.';
         status.className = 'form-status err';
         return;
       }
 
-      var subject = 'New project enquiry — ' + name;
-      var bodyLines = [
-        'Name: ' + name,
-        'Email: ' + email,
-        type ? ('Project type: ' + type) : null,
-        '',
-        message
-      ].filter(function(l){ return l !== null; });
-      var href = 'mailto:' + EMAIL +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(bodyLines.join('\n'));
+      status.textContent = 'Sending…';
+      status.className = 'form-status';
+      if(btn) btn.disabled = true;
 
-      window.location.href = href;
-      status.textContent = 'Opening your email app… if nothing happens, email ' + EMAIL + ' directly.';
-      status.className = 'form-status ok';
+      var data = new FormData(form);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      })
+      .then(function(res){ return res.json().then(function(j){ return { ok: res.ok, j: j }; }); })
+      .then(function(r){
+        if(r.ok && r.j.success){
+          status.textContent = 'Thanks ' + name + ' — your message has been sent. I\'ll be in touch soon.';
+          status.className = 'form-status ok';
+          form.reset();
+        } else {
+          throw new Error(r.j && r.j.message ? r.j.message : 'send failed');
+        }
+      })
+      .catch(function(){
+        status.innerHTML = 'Something went wrong sending the form. Please email <a href="mailto:' + EMAIL + '" style="color:inherit;text-decoration:underline">' + EMAIL + '</a> directly.';
+        status.className = 'form-status err';
+      })
+      .finally(function(){ if(btn) btn.disabled = false; });
     });
   })();
 </script>
