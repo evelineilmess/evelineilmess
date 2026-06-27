@@ -8,30 +8,30 @@
 <meta property="og:title" content="Contact · Evelin B. Eilmess">
 <meta property="og:description" content="Start a project, or just say hello.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 <link id="gfont-Oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
 </head>
 <body>
 
 <!-- ===================== NAV ===================== -->
 <header class="nav">
-  <a class="brand" href="index.html#top" aria-label="Evelin B. Eilmess - home" style="font-family: Archivo">
+  <a class="brand" href="/" aria-label="Evelin B. Eilmess - home" style="font-family: Archivo">
     <span class="dot"></span> Evelin B. Eilmess
   </a>
   <nav class="nav-links">
-    <a href="index.html#work">Work</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#services">Services</a>
-    <a class="nav-cta" href="contact.html">Let's talk</a>
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+    <a href="/#services">Services</a>
+    <a class="nav-cta" href="/contact">Let's talk</a>
   </nav>
   <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
 </header>
 
 <div class="menu-overlay" id="menu">
-  <a href="index.html#work">Work</a>
-  <a href="index.html#about">About</a>
-  <a href="index.html#services">Services</a>
-  <a href="contact.html">Contact</a>
+  <a href="/#work">Work</a>
+  <a href="/#about">About</a>
+  <a href="/#services">Services</a>
+  <a href="/contact">Contact</a>
   <div class="menu-meta mono">
     <span>London - Working globally</span>
     <span>hello@evelineilmess.com</span>
@@ -42,7 +42,7 @@
 <main class="contact-page" data-screen-label="Contact">
   <div class="cta-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
   <div class="wrap">
-    <a class="case-back mono reveal" href="index.html#top">
+    <a class="case-back mono reveal" href="/">
       <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></span>
       Back home
     </a>
@@ -75,8 +75,7 @@ a rough idea, or just a hello. I reply to everything personally, usually within 
       </div>
 
       <!-- RIGHT: form -->
-      <form class="contact-form reveal" data-d="2" id="contact-form" novalidate>
-        <!-- Web3Forms: replace the access key below with your own from web3forms.com -->
+      <form class="contact-form reveal" data-d="2" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="0fec7471-14aa-46bd-bd09-5c5981b6fd0c">
         <input type="hidden" name="subject" value="New project enquiry — evelineilmess.com">
         <input type="hidden" name="from_name" value="Evelin Eilmess — Website">
@@ -131,22 +130,22 @@ a rough idea, or just a hello. I reply to everything personally, usually within 
       <div class="footer-nav">
         <div class="footer-col mono">
           <span class="h">Menu</span>
-          <a href="index.html#work">Work</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#services">Services</a>
+          <a href="/#work">Work</a>
+          <a href="/#about">About</a>
+          <a href="/#services">Services</a>
         </div>
         <div class="footer-col mono">
           <span class="h">Connect</span>
           <a href="mailto:hello@evelineilmess.com">Email</a>
           <a href="https://www.linkedin.com/in/evelin-eilmess/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="contact.html">Start a project</a>
+          <a href="/contact">Start a project</a>
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="../main.js"></script>
 <script>
   (function(){
     var form = document.getElementById('contact-form');
